@@ -1,0 +1,329 @@
+<svg fill="none" viewBox="0 0 660 380" width="660" height="380" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        <div xmlns="http://www.w3.org/1999/xhtml" class="root">
+            <style>
+                @keyframes hide {
+                    from {
+                        visibility: inherit;
+                        width: inherit;
+                    }
+
+                    to {
+                        visibility: hidden;
+                        width: 0;
+                    }
+                }
+
+                @keyframes unhide {
+                    from {
+                        visibility: hidden;
+                        width: 0;
+                    }
+                    
+                    to {
+                        visibility: inherit;
+                        width: inherit;
+                    }
+                }
+
+                @keyframes figlet {
+                    0% { content: "" }
+                    4% { content: "f" }
+                    9% { content: "fi" }
+                    13% { content: "fig" }
+                    18% { content: "figl" }
+                    22% { content: "figle" }
+                    27% { content: "figlet" }
+                    31% { content: "figlet " }
+                    36% { content: "figlet -" }
+                    40% { content: "figlet -c" }
+                    45% { content: "figlet -c " }
+                    50% { content: "figlet -c H" }
+                    54% { content: "figlet -c He" }
+                    59% { content: "figlet -c Hel" }
+                    63% { content: "figlet -c Hell" }
+                    68% { content: "figlet -c Hello" }
+                    72% { content: "figlet -c Hello " }
+                    77% { content: "figlet -c Hello t" }
+                    81% { content: "figlet -c Hello th" }
+                    86% { content: "figlet -c Hello the" }
+                    90% { content: "figlet -c Hello ther" }
+                    95% { content: "figlet -c Hello there" }
+                    100% { content: "figlet -c Hello there!" }
+                }
+
+                @keyframes pinky {
+                    0% { content: "" }
+                    6% { content: "p" }
+                    13% { content: "pi" }
+                    20% { content: "pin" }
+                    26% { content: "pink" }
+                    33% { content: "pinky" }
+                    40% { content: "pinky " }
+                    46% { content: "pinky -" }
+                    53% { content: "pinky -l" }
+                    60% { content: "pinky -lb" }
+                    66% { content: "pinky -lb " }
+                    73% { content: "pinky -lb t" }
+                    80% { content: "pinky -lb to" }
+                    86% { content: "pinky -lb toi" }
+                    93% { content: "pinky -lb toin" }
+                    100% { content: "pinky -lb toino" }
+                }
+
+                @keyframes locale {
+                    0% { content: "" }
+                    16% { content: "l" }
+                    33% { content: "lo" }
+                    50% { content: "loc" }
+                    66% { content: "loca" }
+                    83% { content: "local" }
+                    100% { content: "locale" }
+                }
+
+                @keyframes languages {
+                    0% { content: "" }
+                    8% { content: "l" }
+                    16% { content: "ls" }
+                    25% { content: "ls " }
+                    33% { content: "ls l" }
+                    41% { content: "ls la" }
+                    50% { content: "ls lan" }
+                    58% { content: "ls lang" }
+                    66% { content: "ls langu" }
+                    75% { content: "ls langua" }
+                    83% { content: "ls languag" }
+                    91% { content: "ls language" }
+                    100% { content: "ls languages" }
+                }
+
+                @keyframes education {
+                    0% { content: "" }
+                    7% { content: "c" }
+                    15% { content: "ca" }
+                    23% { content: "cat" }
+                    30% { content: "cat " }
+                    38% { content: "cat e" }
+                    46% { content: "cat ed" }
+                    53% { content: "cat edu" }
+                    61% { content: "cat educ" }
+                    69% { content: "cat educa" }
+                    76% { content: "cat educat" }
+                    84% { content: "cat educati" }
+                    92% { content: "cat educatio" }
+                    100% { content: "cat education" }
+                }
+
+                @keyframes echo-os {
+                    0% { content: "" }
+                    12% { content: "e" }
+                    25% { content: "ec" }
+                    37% { content: "ech" }
+                    50% { content: "echo" }
+                    62% { content: "echo " }
+                    75% { content: "echo $" }
+                    87% { content: "echo $o" }
+                    100% { content: "echo $os" }
+                }
+
+                * {
+                    padding: 0;
+                    margin: 0;
+                    box-sizing: border-box;
+                }
+
+                .root {
+                    background-color: #1a2026;
+                    font-size: 14px;
+                    padding: 10px;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+
+                    /* Hacky way to make font sizes consistent */
+                    color: white;
+                    font-family: monospace;
+                    letter-spacing: calc(8px - 1ch);
+                    line-height: 18px;
+                }
+
+                span {
+                    display: inline-block;
+                    white-space: pre;
+                }
+
+                .command-line {
+                    animation-name: unhide;
+                    animation-duration: var(--show-at);
+                    animation-timing-function: step-end;
+                    animation-fill-mode: both;
+                }
+
+                .command::before {
+                    content: "placeholder";
+                    animation-name: var(--command);
+                    animation-duration: calc(var(--duration) - .2s);
+                    animation-timing-function: linear;
+                    animation-fill-mode: both;
+                    animation-delay: var(--start-at);
+                }
+
+                .command::after {
+                    content: "_";
+                    animation-name: hide;
+                    animation-duration: var(--duration);
+                    animation-timing-function: step-end;
+                    animation-fill-mode: forwards;
+                    animation-delay: var(--start-at);
+                }
+
+                .result {
+                    animation-name: unhide;
+                    animation-duration: var(--duration);
+                    animation-timing-function: step-end;
+                    animation-fill-mode: backwards;
+                    animation-delay: var(--start-at);
+                }
+
+                .path {
+                    color: #6ec1d6;
+                    animation-name: hide;
+                    animation-duration: var(--duration);
+                    animation-timing-function: step-end;
+                    animation-fill-mode: forwards;
+                    animation-delay: var(--start-at);
+                }
+
+                .prompt {
+                    color: #94cf95;
+                }
+
+                #figlet {
+                    --command: figlet;
+                    --duration: 3s;
+                    --start-at: 1s;
+                    --show-at: 0s;
+                }
+
+                #pinky {
+                    --command: pinky;
+                    --duration: 2.5s;
+                    --start-at: 5s;
+                    --show-at: 4s;
+                }
+
+                #locale {
+                    --command: locale;
+                    --duration: 1s;
+                    --start-at: 8.5s;
+                    --show-at: 7.5s;
+                }
+
+                #languages {
+                    --command: languages;
+                    --duration: 1.5s;
+                    --start-at: 10.5s;
+                    --show-at: 9.5s;
+                }
+
+                #education {
+                    --command: education;
+                    --duration: 1.5s;
+                    --start-at: 13s;
+                    --show-at: 12s;
+                }
+
+                #echo-os {
+                    --command: echo-os;
+                    --duration: 1s;
+                    --start-at: 15.5s;
+                    --show-at: 14.5s;
+                }
+
+                #empty {
+                    --show-at: 16.5s;
+                }
+                #empty .command::before {
+                    content: "";
+                }
+                #empty .command::after {
+                    animation: none;
+                }
+                #empty .path {
+                    animation: none;
+                }
+            </style>
+
+            <div class="command-line" id="figlet">
+                <p>
+                    <span class="path">~&#32;</span><span class="prompt">></span>
+                    <span class="command" />
+                </p>
+                <div class="result">
+                    <p><span>                   _  _     _ _       _   _                _ 
+                  | || |___| | |___  | |_| |_  ___ _ _ ___| |
+                  | __ / -_) | / _ \ |  _| ' \/ -_) '_/ -_)_|
+                  |_||_\___|_|_\___/  \__|_||_\___|_| \___(_)</span></p>
+                </div>
+            </div>
+
+            <div class="command-line" id="pinky">
+                <p>
+                    <span class="path">~ </span><span class="prompt">></span>
+                    <span class="command"/>
+                </p>
+                <div class="result">
+                    <p><span>Login name: toino                       In real life: João</span></p>
+                </div>
+            </div>
+
+            <div class="command-line" id="locale">
+                <p>
+                    <span class="path">~ </span><span class="prompt">></span>
+                    <span class="command"/>
+                </p>
+                <div class="result">
+                    <p>LANG=en_US.UTF-8:pt_PT.UTF-8</p>
+                </div>
+            </div>
+
+            <div class="command-line" id="languages">
+                <p>
+                    <span class="path">~ </span><span class="prompt">></span>
+                    <span class="command"/>
+                </p>
+                <div class="result">
+                    <p><span>bash  c++  css  html  java  javascript  lua  python  typescript</span></p>
+                </div>
+            </div>
+
+            <div class="command-line" id="education">
+                <p>
+                    <span class="path">~ </span><span class="prompt">></span>
+                    <span class="command"/>
+                </p>
+                <div class="result">
+                    <p><span>Currently getting a BSc and MSc in Informatics and Computing Engineering at FEUP</span></p>
+                    <p><span>Progress: [|||||||||||||                                                       ]</span></p>
+                </div>
+            </div>
+
+            <div class="command-line" id="echo-os">
+                <p>
+                    <span class="path">~ </span><span class="prompt">></span>
+                    <span class="command"/>
+                </p>
+                <div class="result">
+                    <p><span>I use Arch&#8482; btw, checkout my dotfiles</span></p>
+                </div>
+            </div>
+
+            <div class="command-line" id="empty">
+                <p>
+                    <span class="path">~ </span><span class="prompt">></span>
+                    <span class="command"/>
+                </p>
+            </div>
+        </div>
+    </foreignObject>
+</svg>
