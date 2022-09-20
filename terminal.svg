@@ -2,328 +2,379 @@
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml" class="root">
             <style>
-                @keyframes hide {
-                    from {
-                        visibility: inherit;
-                        width: inherit;
-                    }
+    @keyframes hide {
+    from {
+        visibility: inherit;
+        width: inherit;
+    }
 
-                    to {
-                        visibility: hidden;
-                        width: 0;
-                    }
-                }
+    to {
+        visibility: hidden;
+        width: 0;
+    }
+}
 
-                @keyframes unhide {
-                    from {
-                        visibility: hidden;
-                        width: 0;
-                    }
-                    
-                    to {
-                        visibility: inherit;
-                        width: inherit;
-                    }
-                }
+@keyframes unhide {
+    from {
+        visibility: hidden;
+        width: 0;
+    }
 
-                @keyframes figlet {
-                    0% { content: "" }
-                    4% { content: "f" }
-                    9% { content: "fi" }
-                    13% { content: "fig" }
-                    18% { content: "figl" }
-                    22% { content: "figle" }
-                    27% { content: "figlet" }
-                    31% { content: "figlet " }
-                    36% { content: "figlet -" }
-                    40% { content: "figlet -c" }
-                    45% { content: "figlet -c " }
-                    50% { content: "figlet -c H" }
-                    54% { content: "figlet -c He" }
-                    59% { content: "figlet -c Hel" }
-                    63% { content: "figlet -c Hell" }
-                    68% { content: "figlet -c Hello" }
-                    72% { content: "figlet -c Hello " }
-                    77% { content: "figlet -c Hello t" }
-                    81% { content: "figlet -c Hello th" }
-                    86% { content: "figlet -c Hello the" }
-                    90% { content: "figlet -c Hello ther" }
-                    95% { content: "figlet -c Hello there" }
-                    100% { content: "figlet -c Hello there!" }
-                }
+    to {
+        visibility: inherit;
+        width: inherit;
+    }
+}
 
-                @keyframes pinky {
-                    0% { content: "" }
-                    6% { content: "p" }
-                    13% { content: "pi" }
-                    20% { content: "pin" }
-                    26% { content: "pink" }
-                    33% { content: "pinky" }
-                    40% { content: "pinky " }
-                    46% { content: "pinky -" }
-                    53% { content: "pinky -l" }
-                    60% { content: "pinky -lb" }
-                    66% { content: "pinky -lb " }
-                    73% { content: "pinky -lb t" }
-                    80% { content: "pinky -lb to" }
-                    86% { content: "pinky -lb toi" }
-                    93% { content: "pinky -lb toin" }
-                    100% { content: "pinky -lb toino" }
-                }
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 
-                @keyframes locale {
-                    0% { content: "" }
-                    16% { content: "l" }
-                    33% { content: "lo" }
-                    50% { content: "loc" }
-                    66% { content: "loca" }
-                    83% { content: "local" }
-                    100% { content: "locale" }
-                }
+.root {
+    --font-size: 14px;
+--ch-width: 8px;
+--ch-height: 18px;
+--padding: 10px;
+--border-radius: 10px;
+--cursor: "_";
+--background: #061115;
+--foreground: #d9d7d6;
+--black: #1c252c;
+--red: #df5b61;
+--green: #78b892;
+--yellow: #de8f78;
+--blue: #6791c9;
+--magenta: #bc83e3;
+--cyan: #67afc1;
+--white: #d9d7d6;
+--bright-black: #484e5b;
+--bright-red: #f16269;
+--bright-green: #8cd7aa;
+--bright-yellow: #e9967e;
+--bright-blue: #79aaeb;
+--bright-magenta: #c488ec;
+--bright-cyan: #7acfe4;
+--bright-white: #e5e5e5;
 
-                @keyframes languages {
-                    0% { content: "" }
-                    8% { content: "l" }
-                    16% { content: "ls" }
-                    25% { content: "ls " }
-                    33% { content: "ls l" }
-                    41% { content: "ls la" }
-                    50% { content: "ls lan" }
-                    58% { content: "ls lang" }
-                    66% { content: "ls langu" }
-                    75% { content: "ls langua" }
-                    83% { content: "ls languag" }
-                    91% { content: "ls language" }
-                    100% { content: "ls languages" }
-                }
 
-                @keyframes education {
-                    0% { content: "" }
-                    7% { content: "c" }
-                    15% { content: "ca" }
-                    23% { content: "cat" }
-                    30% { content: "cat " }
-                    38% { content: "cat e" }
-                    46% { content: "cat ed" }
-                    53% { content: "cat edu" }
-                    61% { content: "cat educ" }
-                    69% { content: "cat educa" }
-                    76% { content: "cat educat" }
-                    84% { content: "cat educati" }
-                    92% { content: "cat educatio" }
-                    100% { content: "cat education" }
-                }
+    background-color: var(--background);
+    font-size: var(--font-size);
+    padding: var(--padding);
+    width: 100%;
+    height: 100%;
+    border-radius: var(--border-radius);
 
-                @keyframes echo-os {
-                    0% { content: "" }
-                    12% { content: "e" }
-                    25% { content: "ec" }
-                    37% { content: "ech" }
-                    50% { content: "echo" }
-                    62% { content: "echo " }
-                    75% { content: "echo $" }
-                    87% { content: "echo $o" }
-                    100% { content: "echo $os" }
-                }
+    /* Hacky way to make font sizes consistent */
+    color: var(--foreground);
+    font-family: monospace;
+    letter-spacing: calc(var(--ch-width) - 1ch);
+    line-height: var(--ch-height);
+}
 
-                * {
-                    padding: 0;
-                    margin: 0;
-                    box-sizing: border-box;
-                }
+span,
+span::before,
+span::after {
+    display: inline-block;
+    white-space: pre;
+}
 
-                .root {
-                    background-color: #1a2026;
-                    font-size: 14px;
-                    padding: 10px;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
+.command-line {
+    animation-name: unhide;
+    animation-duration: var(--show-at);
+    animation-timing-function: step-end;
+    animation-fill-mode: both;
+}
 
-                    /* Hacky way to make font sizes consistent */
-                    color: white;
-                    font-family: monospace;
-                    letter-spacing: calc(8px - 1ch);
-                    line-height: 18px;
-                }
+.command::before {
+    content: "placeholder";
+    animation-name: var(--command);
+    animation-duration: calc(var(--duration) - 0.2s);
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-delay: var(--start-at);
+}
 
-                span {
-                    display: inline-block;
-                    white-space: pre;
-                }
+.command::after {
+    content: var(--cursor);
+    animation-name: hide;
+    animation-duration: var(--duration);
+    animation-timing-function: step-end;
+    animation-fill-mode: forwards;
+    animation-delay: var(--start-at);
+}
 
-                .command-line {
-                    animation-name: unhide;
-                    animation-duration: var(--show-at);
-                    animation-timing-function: step-end;
-                    animation-fill-mode: both;
-                }
+.result {
+    animation-name: unhide;
+    animation-duration: var(--duration);
+    animation-timing-function: step-end;
+    animation-fill-mode: backwards;
+    animation-delay: var(--start-at);
+}
 
-                .command::before {
-                    content: "placeholder";
-                    animation-name: var(--command);
-                    animation-duration: calc(var(--duration) - .2s);
-                    animation-timing-function: linear;
-                    animation-fill-mode: both;
-                    animation-delay: var(--start-at);
-                }
+.prompt-hide {
+    animation-name: hide;
+    animation-duration: var(--duration);
+    animation-timing-function: step-end;
+    animation-fill-mode: forwards;
+    animation-delay: var(--start-at);
+}
 
-                .command::after {
-                    content: "_";
-                    animation-name: hide;
-                    animation-duration: var(--duration);
-                    animation-timing-function: step-end;
-                    animation-fill-mode: forwards;
-                    animation-delay: var(--start-at);
-                }
+.prompt0::before {
+    content: "~ ";
+    color: var(--blue);
+    animation-name: hide;
+    animation-duration: var(--duration);
+    animation-timing-function: step-end;
+    animation-fill-mode: forwards;
+    animation-delay: var(--start-at);
+}
+.prompt1::before {
+    content: ">";
+    color: var(--green);}
 
-                .result {
-                    animation-name: unhide;
-                    animation-duration: var(--duration);
-                    animation-timing-function: step-end;
-                    animation-fill-mode: backwards;
-                    animation-delay: var(--start-at);
-                }
 
-                .path {
-                    color: #6ec1d6;
-                    animation-name: hide;
-                    animation-duration: var(--duration);
-                    animation-timing-function: step-end;
-                    animation-fill-mode: forwards;
-                    animation-delay: var(--start-at);
-                }
+#empty .command::before {
+    content: "";
+}
+#empty span::before,
+#empty span::after {
+    animation: none;
+}
 
-                .prompt {
-                    color: #94cf95;
-                }
+#figlet {
+    --command: figlet;
+    --duration: 2.75s;
+    --start-at: 1s;
+    --show-at: 0s;
+}
 
-                #figlet {
-                    --command: figlet;
-                    --duration: 3s;
-                    --start-at: 1s;
-                    --show-at: 0s;
-                }
+@keyframes figlet {
+    0% { content: "" }
+4% { content: "f" }
+9% { content: "fi" }
+13% { content: "fig" }
+18% { content: "figl" }
+22% { content: "figle" }
+27% { content: "figlet" }
+31% { content: "figlet " }
+36% { content: "figlet -" }
+40% { content: "figlet -c" }
+45% { content: "figlet -c " }
+50% { content: "figlet -c H" }
+54% { content: "figlet -c He" }
+59% { content: "figlet -c Hel" }
+63% { content: "figlet -c Hell" }
+68% { content: "figlet -c Hello" }
+72% { content: "figlet -c Hello " }
+77% { content: "figlet -c Hello t" }
+81% { content: "figlet -c Hello th" }
+86% { content: "figlet -c Hello the" }
+90% { content: "figlet -c Hello ther" }
+95% { content: "figlet -c Hello there" }
+100% { content: "figlet -c Hello there!" }
+}
+#pinky {
+    --command: pinky;
+    --duration: 1.875s;
+    --start-at: 4.75s;
+    --show-at: 3.75s;
+}
 
-                #pinky {
-                    --command: pinky;
-                    --duration: 2.5s;
-                    --start-at: 5s;
-                    --show-at: 4s;
-                }
+@keyframes pinky {
+    0% { content: "" }
+6% { content: "p" }
+13% { content: "pi" }
+20% { content: "pin" }
+26% { content: "pink" }
+33% { content: "pinky" }
+40% { content: "pinky " }
+46% { content: "pinky -" }
+53% { content: "pinky -l" }
+60% { content: "pinky -lb" }
+66% { content: "pinky -lb " }
+73% { content: "pinky -lb t" }
+80% { content: "pinky -lb to" }
+86% { content: "pinky -lb toi" }
+93% { content: "pinky -lb toin" }
+100% { content: "pinky -lb toino" }
+}
+#locale {
+    --command: locale;
+    --duration: 0.75s;
+    --start-at: 7.625s;
+    --show-at: 6.625s;
+}
 
-                #locale {
-                    --command: locale;
-                    --duration: 1s;
-                    --start-at: 8.5s;
-                    --show-at: 7.5s;
-                }
+@keyframes locale {
+    0% { content: "" }
+16% { content: "l" }
+33% { content: "lo" }
+50% { content: "loc" }
+66% { content: "loca" }
+83% { content: "local" }
+100% { content: "locale" }
+}
+#languages {
+    --command: languages;
+    --duration: 1.5s;
+    --start-at: 9.375s;
+    --show-at: 8.375s;
+}
 
-                #languages {
-                    --command: languages;
-                    --duration: 1.5s;
-                    --start-at: 10.5s;
-                    --show-at: 9.5s;
-                }
+@keyframes languages {
+    0% { content: "" }
+8% { content: "l" }
+16% { content: "ls" }
+25% { content: "ls " }
+33% { content: "ls l" }
+41% { content: "ls la" }
+50% { content: "ls lan" }
+58% { content: "ls lang" }
+66% { content: "ls langu" }
+75% { content: "ls langua" }
+83% { content: "ls languag" }
+91% { content: "ls language" }
+100% { content: "ls languages" }
+}
+#education {
+    --command: education;
+    --duration: 1.625s;
+    --start-at: 11.875s;
+    --show-at: 10.875s;
+}
 
-                #education {
-                    --command: education;
-                    --duration: 1.5s;
-                    --start-at: 13s;
-                    --show-at: 12s;
-                }
+@keyframes education {
+    0% { content: "" }
+7% { content: "c" }
+15% { content: "ca" }
+23% { content: "cat" }
+30% { content: "cat " }
+38% { content: "cat e" }
+46% { content: "cat ed" }
+53% { content: "cat edu" }
+61% { content: "cat educ" }
+69% { content: "cat educa" }
+76% { content: "cat educat" }
+84% { content: "cat educati" }
+92% { content: "cat educatio" }
+100% { content: "cat education" }
+}
+#echo-os {
+    --command: echo-os;
+    --duration: 1.0s;
+    --start-at: 14.5s;
+    --show-at: 13.5s;
+}
 
-                #echo-os {
-                    --command: echo-os;
-                    --duration: 1s;
-                    --start-at: 15.5s;
-                    --show-at: 14.5s;
-                }
+@keyframes echo-os {
+    0% { content: "" }
+12% { content: "e" }
+25% { content: "ec" }
+37% { content: "ech" }
+50% { content: "echo" }
+62% { content: "echo " }
+75% { content: "echo $" }
+87% { content: "echo $O" }
+100% { content: "echo $OS" }
+}
+#empty {
+    --show-at: 15.5s;
+}
 
-                #empty {
-                    --show-at: 16.5s;
-                }
-                #empty .command::before {
-                    content: "";
-                }
-                #empty .command::after {
-                    animation: none;
-                }
-                #empty .path {
-                    animation: none;
-                }
-            </style>
+</style>
 
-            <div class="command-line" id="figlet">
-                <p>
-                    <span class="path">~&#32;</span><span class="prompt">></span>
-                    <span class="command" />
-                </p>
-                <div class="result">
-                    <p><span>                   _  _     _ _       _   _                _ 
+<div class="command-line" id="figlet">
+    <p>
+        <span class="prompt0" /><span class="prompt1" />
+        <span class="command" />
+    </p>
+    <div class="result">
+        <p>
+            <span>                   _  _     _ _       _   _                _
                   | || |___| | |___  | |_| |_  ___ _ _ ___| |
                   | __ / -_) | / _ \ |  _| ' \/ -_) '_/ -_)_|
-                  |_||_\___|_|_\___/  \__|_||_\___|_| \___(_)</span></p>
-                </div>
-            </div>
+                  |_||_\___|_|_\___/  \__|_||_\___|_| \___(_)
+</span>
+        </p>
+    </div>
+</div>
 
-            <div class="command-line" id="pinky">
-                <p>
-                    <span class="path">~ </span><span class="prompt">></span>
-                    <span class="command"/>
-                </p>
-                <div class="result">
-                    <p><span>Login name: toino                       In real life: João</span></p>
-                </div>
-            </div>
+<div class="command-line" id="pinky">
+    <p>
+        <span class="prompt0" /><span class="prompt1" />
+        <span class="command" />
+    </p>
+    <div class="result">
+        <p>
+            <span>Login name: toino                       In real life: João</span>
+        </p>
+    </div>
+</div>
 
-            <div class="command-line" id="locale">
-                <p>
-                    <span class="path">~ </span><span class="prompt">></span>
-                    <span class="command"/>
-                </p>
-                <div class="result">
-                    <p>LANG=en_US.UTF-8:pt_PT.UTF-8</p>
-                </div>
-            </div>
+<div class="command-line" id="locale">
+    <p>
+        <span class="prompt0" /><span class="prompt1" />
+        <span class="command" />
+    </p>
+    <div class="result">
+        <p>
+            <span>LANG=en_US.UTF-8:pt_PT.UTF-8</span>
+        </p>
+    </div>
+</div>
 
-            <div class="command-line" id="languages">
-                <p>
-                    <span class="path">~ </span><span class="prompt">></span>
-                    <span class="command"/>
-                </p>
-                <div class="result">
-                    <p><span>bash  c++  css  html  java  javascript  lua  python  typescript</span></p>
-                </div>
-            </div>
+<div class="command-line" id="languages">
+    <p>
+        <span class="prompt0" /><span class="prompt1" />
+        <span class="command" />
+    </p>
+    <div class="result">
+        <p>
+            <span>bash  c++  css  html  java  javascript  lua  python  typescript</span>
+        </p>
+    </div>
+</div>
 
-            <div class="command-line" id="education">
-                <p>
-                    <span class="path">~ </span><span class="prompt">></span>
-                    <span class="command"/>
-                </p>
-                <div class="result">
-                    <p><span>Currently getting a BSc and MSc in Informatics and Computing Engineering at FEUP</span></p>
-                    <p><span>Progress: [|||||||||||||                                                       ]</span></p>
-                </div>
-            </div>
+<div class="command-line" id="education">
+    <p>
+        <span class="prompt0" /><span class="prompt1" />
+        <span class="command" />
+    </p>
+    <div class="result">
+        <p>
+            <span>Currently getting a BSc and MSc in Informatics and Computing Engineering at FEUP
+Progress: [|||||||||||||||||||||||||||                                         ]</span>
+        </p>
+    </div>
+</div>
 
-            <div class="command-line" id="echo-os">
-                <p>
-                    <span class="path">~ </span><span class="prompt">></span>
-                    <span class="command"/>
-                </p>
-                <div class="result">
-                    <p><span>I use Arch&#8482; btw, checkout my dotfiles</span></p>
-                </div>
-            </div>
+<div class="command-line" id="echo-os">
+    <p>
+        <span class="prompt0" /><span class="prompt1" />
+        <span class="command" />
+    </p>
+    <div class="result">
+        <p>
+            <span>I use Arch™ btw, checkout my dotfiles</span>
+        </p>
+    </div>
+</div>
 
-            <div class="command-line" id="empty">
-                <p>
-                    <span class="path">~ </span><span class="prompt">></span>
-                    <span class="command"/>
-                </p>
-            </div>
+<div class="command-line" id="empty">
+    <p>
+        <span class="prompt0" /><span class="prompt1" />
+        <span class="command" />
+    </p>
+    <div class="result">
+        <p>
+            <span></span>
+        </p>
+    </div>
+</div>
+
+
         </div>
     </foreignObject>
 </svg>
